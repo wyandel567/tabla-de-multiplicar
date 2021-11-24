@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi proyecto</title>
+</head>
+<body>
+<head>
+<title>Tablas de multiplicar (JBFB)</title>
+<style type="text/css"> 
+ body { background-image: url(401-4014767_small-imagenes-de-un-pizarron-animado.png); text-align:center;}
+ p {color:rgb(27, 122, 56);}
+ h1 {text-align:center; color:#0ae955;}
+ #tabla_mul { border: 2px inset; margin:auto;}
+ td { color:black; font-family:Verdana; text-align:center;
+ width:70px; border:1px inset;background: transparent;}
+</style>
+<script type="text/javascript">
+onload = function() {
+ if (!document.getElementsByTagName || !document.createTextNode) return;
+ let operacion = ""; 
+ let resultado = ""; 
+ let valor = 0; 
+ let tablasel = ""; 
+ for (i = 0; i < 20; i++) {
+ let celdas = document.getElementById('tabla_mul').getElementsByTagName('tr')[i].getElementsByTagName('td');
+ for (j = 0; j < 10; j++) { 
+ celdas[j].innerHTML= (j+1) +" x " + (i+1); 
+ celdas[j].name= (j+1) *(i+1)
+ celdas[j].onclick=function() {
+ if (operacion.substring(0, 2)>9) {
+ valor =operacion.substring(0, 2); 
+ }
+ else {
+ valor =operacion.substring(0, 1); 
+ }
+ tablasel="Tabla del: " + valor + "\n" + "\n";
+ for (let k=1;k<30;k++){
+ tablasel= tablasel + valor + " x " + k + " = " + valor * k + "\n" + "\n";
+ }
+ alert(tablasel);
+ }
+ celdas[j].onmouseover=function() {
+ this.style.fontWeight="bold";
+ this.style.color='blue';
+ this.style.backgroundColor="yellow";
+ operacion=this.innerHTML;
+ nombre=this.name;
+ this.innerHTML=nombre;
+ }
+ celdas[j].onmouseout=function() {
+ this.style.fontWeight="normal";
+ this.style.color='purple';
+ this.style.backgroundColor="aqua";
+ this.innerHTML=operacion;
+
+ }
+ }
+ }
+}
+</script>
+</head>
+<body>
+<h1>TABLA DE MULTIPLICAR</h1>
+<br>
+<table id="tabla_mul" >
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<p> Si quieres repasar una tabla, haz clic en cualquiera de las casillas de la columna de la tabla deseada.</p>
+<p> Para practicar, piensa en el resultado de una operación y a continuación pon sobre ella el cursor para comprobarlo.</p>
+<p>AUTOR: Wisin Yandel Sosa Condori </p>
+</body>
+</html>
